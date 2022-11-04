@@ -1,7 +1,9 @@
-FROM openjdk-8-jdk
+FROM ubuntu:20.04
 
 RUN apt-get update
 
-WORKDIR /home/anupmishra60226/Docker_Jenkins_Pipeline_1
+RUN apt-get install -y nginx
 
-COPY . .
+COPY index.nginx-debian.html /var/www/html
+
+CMD nginx -g 'daemon off;'
